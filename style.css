@@ -1,10 +1,11 @@
 body {
     background-color: black;
     display: flex;
-    flex-direction: column;
     align-items: center;
     height: 100vh;
     justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .calculator {
@@ -16,12 +17,17 @@ body {
 }
 
 .display {
-    height: 110px;
-    width: 440px;
+    height: 120px;
+    width: 425px;
     align-self: center;
     background-color: pink;
     margin: 10px;
     padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    border: solid black 0.5px;
 }
 
 .inputarea {
@@ -29,12 +35,10 @@ body {
     margin: 10px;
     display: flex;
     text-align: center;
-    font-size: 35px;
-    font-weight: bold;
 }
 
 .keypad {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -47,23 +51,27 @@ body {
     margin-top: 5px;
 }
 
-.button {
+.number{
     width: 30%;
     background-color: blueviolet;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 90%;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
 }
 
+
 .calcfunction {
-    width: 25%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 5px;
 }
-
+/* 
 .funct {
     height: 15%;
     width: 90%;
@@ -75,5 +83,16 @@ body {
 }
 
 .calculate {
+    height: 27%;
+} */
+
+.function {
+    height: 15%;
+    font-size: large;
+    font-weight: bold;
+    background-color: aqua;
+}
+
+.process {
     height: 27%;
 }
