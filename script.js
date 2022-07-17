@@ -1,7 +1,6 @@
 const button = document.querySelectorAll('.number, .function');
 let displayedNumber = document.querySelector('.display');
-let displayNumberContent = "0";
-displayedNumber.textContent = displayNumberContent;
+displayedNumber.textContent = "0";
 
 button.forEach(button => {
     button.addEventListener('click', () => {
@@ -12,21 +11,18 @@ button.forEach(button => {
     })
 })
 
-let checkFirstInput = true;
+
 //eventlistener display number clicked function
 function numberDisplayFunction(currentNumber) {
     //if selected number is 1-9 then proceed to write the number
-    let checkDisplay = currentNumber === "0" && displayNumberContent === "0";
+    let checkDisplay = !(displayedNumber.textContent === "0");
     //set first number
-    if((!checkDisplay && (displayNumberContent == "0")) && checkFirstInput ) {
+    if(!checkDisplay) {
         displayedNumber.textContent = currentNumber;
-        displayNumberContent = currentNumber;
-        checkFirstInput= false;
         return;
     }
-    if(displayNumberContent.textContent != "0") {
+    if(checkDisplay) {
         displayedNumber.textContent += currentNumber;
-        displayNumberContent = currentNumber;
     }
 
 }
