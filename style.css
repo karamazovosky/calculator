@@ -73,15 +73,25 @@ button {
     padding: 30px;
     border-radius: 0px;
     background-color: #7a828f;
-    box-shadow: 2px 2px 10px #a4a7b4 inset, 2px 2px 15px rgb(93, 94, 101) inset;
+    box-shadow: 2px 2px 10px #a4a7b4 inset, -2px -2px 15px rgb(93, 94, 101) inset;
     border-radius: 12px;
     margin-top: 5px;
 }
 
+.operate {
+    background-color: #282830;
+    box-shadow: -1px -1px 6px inset #0e0d13;
+}
+.operate:active {
+    background-color: #1a1a21;
+    transform: translateY(0.1px);
+    border-radius: 12px;
+}
+
 button:active {
     background-color: #7a828fa6;
-    transform: translateY(1px);
-    transform: translateX(0.2px);
+    transform: translateY(0.1px);
+    border-radius: 12px;
 }
 
 .zero {
@@ -92,6 +102,14 @@ button:active {
     width: 200%;
     margin-left: -125px;
     border-radius: inherit inherit 20px inherit;
+    background-color: #b45f36;
+    box-shadow: -2px -2px 10px inset #7a2f1c;
+}
+
+.equal:active {
+    background-color: #954528;
+    transform: translateY(0.1px);
+    border-radius: 12px;
 }
 
 .backspace {
