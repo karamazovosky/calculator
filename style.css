@@ -1,5 +1,4 @@
 *{
-    border: solid green 1px;
 }
 
 @font-face {
@@ -26,14 +25,18 @@ body{
     grid-template-rows: repeat(7, 14.285714%);
     padding: 10px;
     border-radius: 20px;
+    background-color: #b7b2b0;
+    box-shadow: 2px 2px 10px #4e4f54 inset, 5px 5px 50px #969993 inset;
 }
 
 .calculator-display{
     grid-row: 1 / span 2;
     grid-column: 1 / span 4;
     padding-bottom: 30px;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px 20px 10px 10px;
     font-family: displayNumber;
+    background-color: #888883;
+    box-shadow: 5px 5px 20px #5c5d5b inset;
 }
 
 .calculator-operate-top {
@@ -41,9 +44,11 @@ body{
     grid-column: 1 / span 4;
     display: grid;
     grid-template-columns: repeat(4, 25%);
+    margin-top: 10px;
 }
 
 .calculator-keypad {
+    margin-top: 10px;
     grid-row: 4 / span 4;
     grid-column: 1 / span 3;
     display: grid;
@@ -52,6 +57,7 @@ body{
 }
 
 .calculator-operate-side {
+    margin-top: 10px;
     grid-row: 4 / span 4;
     grid-column: 4;
     display: grid;
@@ -64,14 +70,17 @@ body{
 button {
     font-size: large;
     font-weight: bold;
-    color: darkslategrey;
-    text-shadow: 0.5px 0.5px;
+    color: #f6faff;
     padding: 30px;
     border-radius: 0px;
+    background-color: #7a828f;
+    box-shadow: 2px 2px 10px #a4a7b4 inset, 2px 2px 15px rgb(93, 94, 101) inset;
+    border-radius: 12px;
+    margin-top: 5px;
 }
 
 button:active {
-    background-color: lightgray;
+    background-color: #7a828fa6;
     transform: translateY(1px);
     transform: translateX(0.2px);
 }
@@ -81,17 +90,18 @@ button:active {
 }
 
 .equal {
-    width: 202%;
-    margin-left: -126px;
-    border-radius: 0px 0px 20px 0px;
+    width: 200%;
+    margin-left: -125px;
+    border-radius: inherit inherit 20px inherit;
 }
 
 .backspace {
     grid-column: 1 / span 2;
+    font-size: 30px;
 }
 
 .dot {
-    border-radius: 0px 0px 0px 20px;
+    border-radius: inherit inherit inherit 20px;
 }
 
 /*------------------------display texts*/
@@ -108,4 +118,18 @@ button:active {
     font-size: 100px;
     height: 100%;
     text-align: end;
+    text-shadow: 2px 2px #5c5d5b;
+    color:#2f3338 ;
+    padding-right: 10px;
+}
+
+.fulldigit p{
+    margin: 0;
+    font-size: 30px;
+    height: 100%;
+    text-align: end;
+    text-shadow: 1px 1px #5c5d5b;
+    color:#2f3338 ;
+    padding-right: 10px;
+    padding-top: 10px;
 }
