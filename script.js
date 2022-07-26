@@ -9,6 +9,7 @@ let operatingKey = null;
 //conditionals for first input and one-time decimal usage
 let decimalEntry = false;
 let firstInput = true;
+let secondInput = false;
 
 //write digit on screen
 inputButton.forEach(selectedButton => {
@@ -42,7 +43,15 @@ inputButton.forEach(selectedButton => {
 
         //function operate final redirect
         if(/=/.test(selectedButton.textContent)){
-            console.log("a")
+            if(previousNumber === ''){
+                return
+            }
+            if(operatingKey === null){
+                return
+            }
+            currentNumber = parseFloat(currentNumber);
+            console.log("ey");
+            operateFinal(currentNumber, previousNumber);
         }
 
         //function extras redirect
@@ -61,6 +70,8 @@ function extraFunctionality(key){
         fullDigit.textContent = "";
         decimalEntry = false;
         firstInput = true;
+        secondInput = false;
+        operatingKey = null;
     }
     if (key === "←") {
         let deletedChar = currentNumber.slice(-1);
@@ -94,13 +105,52 @@ function operateSign(key){
         currentNumber = "";
         mainFocus.textContent = "0";
     }
+    if(secondInput){
+        mainFocus.textContent = "0";
+        secondInput = false;
+    }
     fullDigit.textContent = `${previousNumber} ${key}`;
     operatingKey = key;
 }
 
-function operateFinal(a,b,key){
+function operateFinal(a,b){
     if (isNaN(a)){
         a = 0;
+    }
+    switch(operatingKey){
+        case "+":
+            fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
+            mainFocus.textContent = `${previousNumber+currentNumber}`;
+            previousNumber = parseFloat(mainFocus.textContent);
+            currentNumber = '';
+            secondInput = true;
+            operatingKey = null;
+            return
+        case "-":
+            fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
+            mainFocus.textContent = `${previousNumber-currentNumber}`;
+            previousNumber = parseFloat(mainFocus.textContent);
+            currentNumber = '';
+            secondInput = true;
+            operatingKey = null;
+            return
+        case "X":
+            fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
+            mainFocus.textContent = `${previousNumber*currentNumber}`;
+            previousNumber = parseFloat(mainFocus.textContent);
+            currentNumber = '';
+            secondInput = true;
+            operatingKey = null;
+            return
+        case "/":
+            fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
+            mainFocus.textContent = `${previousNumber/currentNumber}`;
+            previousNumber = parseFloat(mainFocus.textContent);
+            currentNumber = '';
+            secondInput = true;
+            operatingKey = null;
+            return
+
     }
 
 }
