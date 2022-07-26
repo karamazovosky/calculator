@@ -143,12 +143,16 @@ function operateFinal(a,b){
             operatingKey = null;
             return
         case "/":
+            if(a === 0){
+                alert("Cannot divide by 0");
+                return
+            }
+            secondInput = true;
             fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
+            operatingKey = null;
             mainFocus.textContent = `${previousNumber/currentNumber}`;
             previousNumber = parseFloat(mainFocus.textContent);
             currentNumber = '';
-            secondInput = true;
-            operatingKey = null;
             return
 
     }
