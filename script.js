@@ -120,7 +120,7 @@ function operateFinal(a,b){
     switch(operatingKey){
         case "+":
             fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
-            mainFocus.textContent = `${previousNumber+currentNumber}`;
+            mainFocus.textContent = `${(previousNumber+currentNumber)}`;
             previousNumber = parseFloat(mainFocus.textContent);
             currentNumber = '';
             secondInput = true;
@@ -128,7 +128,7 @@ function operateFinal(a,b){
             return
         case "-":
             fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
-            mainFocus.textContent = `${previousNumber-currentNumber}`;
+            mainFocus.textContent = `${(previousNumber-currentNumber)}`;
             previousNumber = parseFloat(mainFocus.textContent);
             currentNumber = '';
             secondInput = true;
@@ -136,7 +136,7 @@ function operateFinal(a,b){
             return
         case "X":
             fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
-            mainFocus.textContent = `${previousNumber*currentNumber}`;
+            mainFocus.textContent = `${(previousNumber*currentNumber)}`;
             previousNumber = parseFloat(mainFocus.textContent);
             currentNumber = '';
             secondInput = true;
@@ -150,7 +150,7 @@ function operateFinal(a,b){
             secondInput = true;
             fullDigit.textContent = `${previousNumber} ${operatingKey} ${currentNumber}`;
             operatingKey = null;
-            mainFocus.textContent = `${previousNumber/currentNumber}`;
+            mainFocus.textContent = `${(previousNumber/currentNumber).toFixed(3)}`;
             previousNumber = parseFloat(mainFocus.textContent);
             currentNumber = '';
             return
