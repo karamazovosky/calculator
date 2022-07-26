@@ -40,9 +40,9 @@ inputButton.forEach(selectedButton => {
             operateSign(currentKey);
         }
 
-        //function operate redirect
+        //function operate final redirect
         if(/=/.test(selectedButton.textContent)){
-            console.log("dat")
+            console.log("a")
         }
 
         //function extras redirect
@@ -82,9 +82,11 @@ function extraFunctionality(key){
 function operateSign(key){
     let convertFloat = parseFloat(currentNumber);
     //if parsefloat currentnumber is nonexist, return
-    if((/[0NaN]/.test(convertFloat) && firstInput) && convertFloat === 0){
-        console.log("user must input number first");
-        return
+    if(firstInput){
+        //previous condition on if ---->  (/[0NaN]/.test(convertFloat) || convertFloat === 0) && 
+        if(isNaN(convertFloat) || convertFloat === 0){
+            return
+        }
     }
     if(firstInput){
         firstInput = false;
@@ -94,5 +96,12 @@ function operateSign(key){
     }
     fullDigit.textContent = `${previousNumber} ${key}`;
     operatingKey = key;
+}
+
+function operateFinal(a,b,key){
+    if (isNaN(a)){
+        a = 0;
+    }
+
 }
 
