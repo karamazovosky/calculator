@@ -4,16 +4,18 @@ let fullDigit = document.querySelector(".fulldigit > p");
 let inputButton = document.querySelectorAll(".calculator-keypad > button , .calculator-operate-top > button, .calculator-operate-side > button");
 let currentNumber = "";
 let previousNumber = "";
+let operatingKey = null;
 
 //conditionals for first input and one-time decimal usage
 let decimalEntry = false;
+let firstInput = true;
 
 //write digit on screen
 inputButton.forEach(selectedButton => {
     selectedButton.addEventListener('click', () => {
         let currentKey = selectedButton.innerText;
 
-        //for numbers only
+        //for numbers display only
         if(/[\d.]/.test(currentKey) && mainFocus.textContent.length < 9){
             //first input 
             //if dot is pressed once and decimalentry is true, return
@@ -24,7 +26,8 @@ inputButton.forEach(selectedButton => {
             if(currentNumber === "" && currentKey === "0"){
                 return
             }
-            if (currentKey === "."){
+            //checks for decimal input once
+            if (currentKey === "." && !decimalEntry){
                 decimalEntry = true;
             }
             //if number is added then store it in variable then edit the display
@@ -34,7 +37,7 @@ inputButton.forEach(selectedButton => {
 
         //function operation sign redirect
         if(/[^\dClear←=.]/.test(selectedButton.innerText)) {
-            console.log("teso")
+            operateSign(currentKey);
         }
 
         //function operate redirect
@@ -57,10 +60,10 @@ function extraFunctionality(key){
         mainFocus.textContent = "0";
         fullDigit.textContent = "";
         decimalEntry = false;
+        firstInput = true;
     }
     if (key === "←") {
         let deletedChar = currentNumber.slice(-1);
-        console.log(deletedChar);
         currentNumber = currentNumber.slice(0, -1);
         
         if (currentNumber.length === 0) {
@@ -75,3 +78,21 @@ function extraFunctionality(key){
 
     }
 }
+
+function operateSign(key){
+    let convertFloat = parseFloat(currentNumber);
+    //if parsefloat currentnumber is nonexist, return
+    if((/[0NaN]/.test(convertFloat) && firstInput) && convertFloat === 0){
+        console.log("user must input number first");
+        return
+    }
+    if(firstInput){
+        firstInput = false;
+        previousNumber = convertFloat;
+        currentNumber = "";
+        mainFocus.textContent = "0";
+    }
+    fullDigit.textContent = `${previousNumber} ${key}`;
+    operatingKey = key;
+}
+
