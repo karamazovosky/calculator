@@ -145,6 +145,7 @@ function operateFinal(a,b){
         case "/":
             if(a === 0){
                 alert("Cannot divide by 0");
+                currentNumber = '';
                 return
             }
             secondInput = true;
